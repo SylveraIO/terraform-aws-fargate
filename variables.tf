@@ -11,6 +11,11 @@ variable "region" {
   default     = ""
 }
 
+variable "env_name" {
+  description = "Environment"
+  default     = "dev"
+}
+
 ## VPC variables
 
 variable "vpc_create" {

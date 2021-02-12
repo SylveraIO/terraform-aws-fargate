@@ -416,7 +416,8 @@ resource "aws_ecs_service" "this" {
   depends_on = [aws_lb_target_group.this, aws_lb_listener.this]
 
   lifecycle {
-    ignore_changes = [desired_count]
+    // wait_for_steady_state is a work around for this issue https://github.com/hashicorp/terraform-provider-aws/issues/16526
+    ignore_changes = [desired_count, wait_for_steady_state]
   }
 }
 
